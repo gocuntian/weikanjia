@@ -1,0 +1,69 @@
+html{height:100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0;}
+li{list-style-type:none}
+a:link,a:hover,a:visited{color:#fff;text-decoration:none;}
+.clearfix{zoom:1;padding:0;}
+.clearfix:after{content:'.';display:block;visibility:hidden;clear:both;height:0px;}
+.quchu{padding:0;}
+.fuzhuk{height:45px;}
+/************************************/
+.zh_activity{padding:12px;}
+.zh_activity .zh_border{border:1px solid #CFCFCF;}
+.zh_activity .zh_photo,.zh_activity .zh_news,.zh_activity .zh_describe{border-bottom:1px solid #CFCFCF;}
+.zh_activity .zh_describe{padding:12px;}
+.zh_activity .zh_describe p{margin-top:7px;}
+.zh_activity .zh_renshu span,.zh_activity .zh_kucun span{color:#FC6148;}
+.zh_activity .zh_jiage{padding:12px;}
+.zh_activity .zh_jiage .zh_yuanjia{height:38px;line-height:38px;font-size:16px;}
+.zh_activity  .zh_yuanjia span{text-decoration:line-through;color:#FE5322;}
+.zh_activity .zh_jiage .zh_end{display:block;width:140px;height:38px;font-size:16px;background-color:#999999;color:#fff;line-height:38px;text-align:center;border-radius:5px;}
+.zh_activity .zh_jiage .zh_canyu{display:block;width:140px;height:38px;font-size:16px;background-color:#FF5429;color:#fff;line-height:38px;text-align:center;border-radius:5px;}
+.zh_activity .zh_canyu img{height: 22px;position: relative;top: -2px;right: 9px;}
+.zh_news div{padding:12px;}
+.zh_center{display:block;width:100%;height:40px;line-height:40px;background-color:#CCCCCC;position:fixed;bottom:0;left:0;text-align:center;}
+.zh_center:link,.zh_center:hover,.zh_center:visited{color:#FF5321;}
+
+.zh_backg{text-align:center;padding:30px;}
+.zh_backg .zh_pic img{width:110px;}
+.zh_backg .zh_gong{margin-top:15px;font-size:30px;color:#3D7802;font-weight:bold;}
+.zh_backg .zh_tishi{font-size:18px;color:#3D7802;}
+.zh_backg a{display:block;font-size:14px;height:46px;line-height:46px;width:250px;border-radius:5px;background-color:#89B90D;margin:20px 0;position:relative;left:50%;margin-left:-125px;}
+.zh_backg a img{width:13px;position: absolute;left: 40px;top: 14px;}
+.zh_backg a span{position:relative;left:10px;font-size:16px;}
+.zh_backg .zh_success{color:#5E6C7B;margin-top:20px;line-height:30px;border-bottom:1px solid #D8D8D8;padding-bottom:10px;}
+
+.zh_pay{padding:15px;}
+.zh_pay .zh_xinxi{border-bottom:1px solid #D8D8D8;padding-bottom:10px;}
+.zh_pay .zh_xinxi p{font-size:12px;margin-top:5px;color:#B5B5B5;}
+.zh_pay .zh_xinxi h5{width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.zh_pay .zh_xinxi .zh_content{padding-left:5px;}
+.zh_pay .zh_xinxi img{width:100%;}
+.zh_jia{padding:10px;border-bottom:1px solid #D8D8D8;padding-bottom:10px;}
+.zh_jia .zh_yuan{margin:5px 0;}
+.zh_jia .zh_yuan span{font-size:15px;text-decoration:line-through;}
+.zh_jia .zh_shi span{font-size:17px;color:#3E7901;}
+
+.zh_fangshi .zh_weix,.zh_fangshi .zh_zhif{position:relative;text-align:center;}
+.zh_fangshi .active{border:1px solid #89B90D;}
+.zh_fangshi .zh_weix img,.zh_fangshi .zh_zhif img{width:100%;}
+.zh_fangshi .zh_weix span,.zh_fangshi .zh_zhif span{color:#000;font-size:12px;}
+.zh_fangshi p{margin:10px;}
+.zh_fangshi .zh_weix .zh_dui,.zh_fangshi .zh_zhif .zh_dui{position:absolute;right: 18px;bottom: 2px;width: 18px;}
+.zh_fangshi .zh_weix .zh_dui{
+	display: block;
+}
+
+.zh_pay .zh_zhifu{display:block;width:100%;height:45px;background-color:#89B90D;margin-top:30px;margin-bottom:5px;font-size:16px;border-radius:5px;color:#fff;line-height:45px;text-align:center;}
+.zh_pay .zh_tixing{font-size:12px;color:#417905;text-align:center;}
+
+.zh_mall{padding:15px;}
+.zh_mall .zh_biank{border:1px solid #E9E9E9;}
+.zh_mall .zh_daojishi{background-color:#E6E6E6;text-align:center;padding:8px;}
+.zh_mall .zh_daojishi span{margin:0 5px;}
+.zh_mall .zh_title{margin-top:5px;border-bottom:1px solid #E9E9E9;padding-bottom:10px;}
+.zh_mall .zh_title img{width:100%;}
+.zh_mall .zh_title .zh_neirong{padding-left:5px;}
+.zh_mall .zh_neirong h5{width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.zh_mall .zh_neirong p{font-size:12px;margin-top:8px;}
+
+

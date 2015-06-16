@@ -38,16 +38,16 @@
 			</div>
 		</div>
 		
-		<?php if(($pageData['coupon_money']) == '0.00'){?>
+		<?php if(($pageData['coupon_money']) != '0.00'){?>
 		<div class="preferentialD">
 			<strong>优惠劵<span>（1张优惠劵）</span></strong>
-			<p class="juanMain"><img src="./theme/images/shangpintp2.jpg" alt="图片"/><span><em><?php echo $pageData['coupon_money']; ?></em>元优惠劵</span></p>
+			<p class="juanMain"><img src="./theme/images/shangpintp2.jpg" alt="图片"/><span><em><?php echo $pageData['coupon_money']; ?></em>元优惠e劵</span></p>
 		</div>
 		<?php }?>
 
 		<div class="truePayment">
 			<p class="shichang">市场价：<span>￥<?php echo $pageData['prouct_price']; ?></span></p>
-            <?php if(($pageData['coupon_money']) == '0.00'){?>
+            <?php if(($pageData['coupon_money']) != '0.00'){?>
 			<p>优惠劵：-￥<?php echo $pageData['coupon_money']; ?></p>
             <?php }?>
 			<p class="shifukuan">实付款：<span>￥<?php echo $pageData['prouct_pay']; ?></span></p>
@@ -74,7 +74,6 @@ data-uid="<?php echo $pageData['uid']; ?>"
 data-addressAjax="http://m2.wkj.idea0086.com/?controller=user&action=postAddress&xymopenid=<?php echo $pageData['xymopenid']; ?>"
 >
  </div>
-
 <script type="text/template" id='addressList'>
 <li data-realname="{ra_realname}" data-cellphone="{ra_cellphone}"  data-address="{ra_address}" >
 	<p><span >{ra_realname}</span><a href="javascript:;" >{ra_cellphone}</a></p>
@@ -161,7 +160,7 @@ if(<?php echo isset($pageData['qrCodePayUrl']) && !empty($pageData['qrCodePayUrl
 {
 	var url = "<?php echo $pageData['qrCodePayUrl']; ?>";
 	//参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
-	var qr = qrcode(8, 'M');
+	var qr = qrcode(10, 'M');
 	qr.addData(url);
 	qr.make();
 	var wording=document.createElement('p');

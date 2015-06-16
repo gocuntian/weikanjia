@@ -86,7 +86,6 @@ else if( !empty($_SESSION['oid']) && !empty($_SESSION['apiurl']) )
 	$pageData['cellphone']        = isset($datas['cellphone']) ? $datas['cellphone'] : '';	// 收货人电话	
 	$pageData['address']          = isset($datas['address']) ? $datas['address'] : '';		// 收货人地址
 	$pageData['xymopenid']        = isset($datas['xymopenid']) ? $datas['xymopenid'] : '';	// xymopenid
-
 	$pageData['repay'] = $_SESSION['repay'];
 	if( !empty($pageData['repay']) )
 	{//重新支付参数 

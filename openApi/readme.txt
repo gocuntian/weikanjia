@@ -32,5 +32,5 @@
     ├── WxPay.pub.config.php      自动生成的配置文件
     └── WxPayPubHelper.php
 
-6 directories, 27 files
+6 directories, 27 files test
 </pre>

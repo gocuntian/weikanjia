@@ -319,6 +319,149 @@ $pageDescription = '';
 $pageKeywords    = '';
 
 
-include_once "viewHtml.php";
+
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="shareTitle" content="">
+<meta name="shareLogo" content="http://xinyuemin.com/invitationHq/fenxiang3.png">
+<title>付款页面</title>
+<link rel="stylesheet" type="text/css" href="./theme/css/admin.css?<?php echo time(); ?>">
+</head>
+
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0">
+<table border=0 cellpadding=0 cellspacing=0 width="98%" height="100%">
+<tr>
+	<form name=loading>
+		<td align=center>
+			<p><font color=gray>微信安全支付中....</font></p>
+		</td>
+	</form>
+</tr>
+</table>
+
+<script type="text/javascript" src="./theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./theme/js/admin.js?v=<?php echo time();?>"></script>
+<script src="theme/js/wxqrcode.js"></script>
+
+<div style="display:none;" id="paydata" 
+data-backurl="<?php echo $pageData['backurl']; ?>"
+data-orderid="<?php echo $pageData['oid']; ?>"
+data-wxorderid="<?php echo $pageData['wxorderid']; ?>" 
+data-uid="<?php echo $pageData['uid']; ?>"
+data-addressAjax="http://m2.wkj.idea0086.com/?controller=user&action=postAddress&xymopenid=<?php echo $pageData['xymopenid']; ?>"
+>
+ </div>
+<script type="text/template" id='addressList'>
+<li data-realname="{ra_realname}" data-cellphone="{ra_cellphone}"  data-address="{ra_address}" >
+	<p><span >{ra_realname}</span><a href="javascript:;" >{ra_cellphone}</a></p>
+	<p>{ra_address}</p>
+</li>	
+</script>
+
+<script type="text/javascript">
+	// 直接进入支付	
+	callpay();
+
+	/* 调用微信JS api 支付 */
+	function jsApiCall()
+	{
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			<?php echo $pageData['jsApiParameters']; ?>,
+			function(res){
+				WeixinJSBridge.log(res.err_msg);
+				var rest_msg = res.err_msg;
+				//alert(res.err_code+res.err_desc+res.err_msg); 
+				var orderid = $('#paydata').attr('data-orderid');
+				var wxorderid = $('#paydata').attr('data-wxorderid');
+				var uid = $('#paydata').attr('data-uid');
+				var backUrl = $('#paydata').attr('data-backurl');
+				var paystatus = rest_msg;
+
+				if(backUrl){
+					var backUrl = backUrl+'oid='+orderid+'&wxorderid='+wxorderid+'&openid='+uid+'&paystatus='+res.err_msg;
+				}
+
+				if(res.err_msg=='get_brand_wcpay_request:fail'){
+
+					if(backUrl){
+						window.setTimeout(function () {
+							window.location.href = backUrl;
+						}, 2);
+					}						
+					//alert('支付失败！');
+				}else if(res.err_msg=='get_brand_wcpay_request:cancel'){
+					window.location.href = backUrl;
+					//alert('支付取消！');
+				}else if(res.err_msg=='get_brand_wcpay_request:ok'){
+					/* 防止再次支付  */
+					$('#zh_zhifu').css('display', 'none');
+					$('#zh_zhifu').after('<a href="'+backUrl+'" class="zh_zhifu" data-paystatus="2">已成功支付</a>');
+					//根据backurl重定向回去 订单号，微信payid ，openid
+					if(backUrl){
+						window.setTimeout(function () {
+							window.location.href = backUrl;
+						}, 2);
+					}					
+				}
+				
+
+
+				/*if(res.err_msg=='get_brand_wcpay_request:cancel'){
+					alert('付款取消');
+				}else if(res.err_msg=='get_brand_wcpay_request:ok'){
+					alert('付款成功！');
+				}*/
+				/*alert(res.err_code+res.err_desc+res.err_msg); */
+			}
+		);
+	}
+
+	function callpay()
+	{
+
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		    }
+		}else{
+		    jsApiCall();
+		}
+	}
+/********** 支付方式选择 **************/
+document.addEventListener('WeixinJSBridgeReady', function() {
+     WeixinJSBridge.call('hideOptionMenu');
+});
+
+if(<?php echo isset($pageData['qrCodePayUrl']) && !empty($pageData['qrCodePayUrl']) ? 1 : 0; ?>)
+{
+	var url = "<?php echo $pageData['qrCodePayUrl']; ?>";
+	//参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+	var qr = qrcode(10, 'M');
+	qr.addData(url);
+	qr.make();
+	var wording=document.createElement('p');
+	wording.innerHTML = "";
+	var code= document.createElement('DIV');
+	code.innerHTML = qr.createImgTag();
+	var element=document.getElementById("qrCodePayUrl");
+	element.appendChild(code);
+	element.appendChild(wording);
+}
+</script>
+
+</body>
+</html>

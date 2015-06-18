@@ -11,6 +11,9 @@ header("Content-Type: text/html;charset=utf-8");
 $wxpayapi = getUrl();
 $wxpayapi .= "loading.php";
 
+$wxpayapiv42 = getUrl();
+$wxpayapiv42 .= "wxpayapiv42.php";
+
 $notify_url = getUrl();
 $notify_url .= "wxnotify.php";
 
@@ -23,6 +26,8 @@ if(file_exists("{$incPaths}/WxPayPubHelper/WxPay.pub.config.php")){
 	<br><li>要想重新配置请先删除此文件再重新配置！</li>
 	<br><li>请将此程序放到 网页微信授权域名 目录！</li>
 	<br/><li>微砍价微信支付api接口为: <span style='color:red'>$wxpayapi</span></li>
+	<br/><li>v42微信接口为: <span style='color:red'>$wxpayapiv42</span></li>	
+	
 	<br/><li>微砍价微信授权调接口为: <span style='color:red'>$wxauth</span></li>	
 
 

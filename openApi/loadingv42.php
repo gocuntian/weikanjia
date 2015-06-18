@@ -9,7 +9,7 @@
 
 <script language="JavaScript">
 <!--
-var url = 'wxpayapi.php?<?php echo $_SERVER['QUERY_STRING'];?>';
+var url = 'wxPayOauth_callback.php?<?php echo $_SERVER['QUERY_STRING'];?>';
 //-->
 </script>
 

@@ -12,7 +12,7 @@ $wxpayapi = getUrl();
 $wxpayapi .= "loading.php";
 
 $wxpayapiv42 = getUrl();
-$wxpayapiv42 .= "loadingv42.php";
+$wxpayapiv42 .= "wxpayapiv42.php";
 
 $notify_url = getUrl();
 $notify_url .= "wxnotify.php";

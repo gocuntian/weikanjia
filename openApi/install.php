@@ -23,13 +23,13 @@ $ideayun_api  = "http://auth.xinyuemin.net/customers/ideaApi2/open_api_client.ph
 
 $incPaths = dirname(__FILE__);
 if(file_exists("{$incPaths}/WxPayPubHelper/WxPay.pub.config.php")){ 
-	if (isset($_GET['del'])){
+    if (isset($_GET['del']) && $_GET['del'] == 'idea0086'){
 		$result = @unlink ("{$incPaths}/WxPayPubHelper/WxPay.pub.config.php"); 
 		header("location:install.php");
 		exit;
 	}
 
-	echo "WxPayPubHelper/WxPay.pub.config.php配置文件已存在请先删除此文件再<a href='install.php?del=true'>重新配置！</a>";
+	echo "WxPayPubHelper/WxPay.pub.config.php配置文件已存在请先删除此文件再<a href='install.php?del=密钥'>或者带上密钥重新配置！</a>";
 	exit;
 }
 
